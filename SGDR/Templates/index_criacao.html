@@ -1,0 +1,26 @@
+{% include "base.html" %}
+
+{% block content %}
+
+<div class= "container">
+    <form action= {%url "index" %} method="POST">
+        <table class="table">
+            {% csrf_token %}
+            {{informacao}}
+
+            <tr>
+                <td>
+                    <button type = "submit" class = "btn btn-primary">Adicionar</button>
+                </td>
+            </tr>
+    </form>
+</div>
+
+
+{% endblock content %}
+
+
+
+
+
+

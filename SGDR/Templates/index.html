@@ -1,0 +1,63 @@
+{% include 'base.html' %}
+
+
+
+{% block conteudo %}
+
+<table class="table table-dark">
+
+  <thead>
+
+    <tr>
+
+      <th scope="col">id</th>
+
+      <th scope="col">Tipo</th>
+
+      <th scope="col">Peso</th>
+
+      <th scope="col">Quantidade</th>
+
+    <th scope="col">Data de Adição</th>
+
+    <th scope="col">Editar</th>
+
+    <th scope="col">Deletar</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    {% for c in informacao %}
+
+
+
+    <tr>
+  
+      <th scope="row">{{c.id}}</th>
+  
+      <td><a href={% url 'index_info' c.id %}>{{c.tipo}}</td>
+  
+      <td>{{c.peso}}</td>
+  
+      <td>{{c.quantidade}}</td>
+  
+      <td>{{c.data_criacao|date:'d/m/Y'}}</td>
+  
+      <td><a href={% url 'update_contato' c.id %}>Editar</a></td>
+
+      <td><a href={% url 'delete_contato' c.id %}>Deletar</a></td>
+  
+    </tr>
+  
+  
+  
+    {% endfor %}
+  
+    </tbody>
+  
+  </table>
+  
+  {% endblock conteudo %}
